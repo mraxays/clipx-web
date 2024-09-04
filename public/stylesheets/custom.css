@@ -1,0 +1,20 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+.scroll-container::-webkit-scrollbar {
+    width: 2px; /* Width of the scrollbar */
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+    background-color: #525252; /* Color of the scrollbar */
+}
+
+.scroll-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Firefox */
+.scroll-container {
+    scrollbar-width: thin; /* Thin scrollbar */
+    scrollbar-color: #525252 transparent; /* Thumb color and track color */
+}
