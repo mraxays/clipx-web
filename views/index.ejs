@@ -44,15 +44,15 @@
   <body class="bg-bunker-950 text-bunker-50 scroll-smooth ">
     <div class="main relative overflow-hidden font-intra">
       <div id="home"
-        class="mx-3 mb-10 p-6 bg-[url('/images/galaxy.jpg')]  bg-no-repeat bg-cover rounded-3xl mt-6 shadow-xl ">
-        <header class="px-10 py-3 flex items-center justify-between text-white bg-slate-800/50 rounded-xl">
+        class="mx-3 mb-10 p-3 md:p-6 bg-[url('/images/galaxy.jpg')]  bg-no-repeat bg-cover rounded-3xl mt-6 shadow-xl ">
+        <header class="px-4 md:px-10 py-3 flex items-center justify-between text-white bg-slate-800/50 rounded-xl">
           <h3
             class="font-bold duration-500  transition-all  inline-block text-3xl font-intra group hover:cursor-pointer hover:underline hover:underline-offset-4">
             <a href="">Clip<span
                 class="inline-block transform transition-transform duration-500 group-hover:rotate-180 group-hover:text-persimmon-300 group-hover:font-extrabold">X</span>.JS</a>
 
           </h3>
-          <div class="flex gap-3 text-lg font-semibold">
+          <div class="hidden md:flex gap-3 text-lg font-semibold">
             <a href="#why" class="transition-all duration-500 hover:bg-persimmon-500 py-1 px-3 rounded-sm"> <i
                 class="ri-question-line"></i> Why ClipX</a>
             <a href="" class="transition-all duration-500 hover:bg-persimmon-500 py-1 px-3 rounded-sm"> <i
@@ -69,18 +69,18 @@
 
         </header>
 
-        <section class="px-10 mt-28 mb-6">
+        <section class="px-4 md:px-10 mt-20 md:mt-28 mb-6">
           <div class="max-w-2xl">
             <h5
-              class="text-base font-medium mb-5 bg-persimmon-600/30 text-persimmon-200 inline-block px-4 rounded-full">
+              class="text-xs md:text-base font-medium mb-5 bg-persimmon-600/30 text-persimmon-200 inline-block px-4 rounded-full">
               Maximize Clipboard Power with Minimal Size </h5>
-            <h1 class="font-bold inline-block text-6xl font-intra  hover:cursor-pointer mb-4">
+            <h1 class="font-bold inline-block text-[1.9rem] md:text-6xl font-intra  hover:cursor-pointer mb-4">
               Introducing
               <a href="" class="group hover:underline hover:underline-offset-4">Clip<span
                   class="inline-block transform transition-transform duration-500 group-hover:rotate-180 group-hover:text-persimmon-300 group-hover:font-extrabold">X</span>.JS</a>
             </h1>
-            <h5 class="text-4xl font-medium mb-5">The Smarter Clipboard Solution</h5>
-            <p class="leading-relaxed">Discover the ultimate in clipboard management with ClipX.js – a library designed
+            <h5 class="text-xl md:text-4xl font-medium mb-3  md:mb-5 opacity-75">The Smarter Clipboard Solution</h5>
+            <p class="leading-relaxed text-sm">Discover the ultimate in clipboard management with ClipX.js – a library designed
               to
               deliver powerful clipboard functionality with a minimal footprint. At just 2KB, clipx.js provides all the
               features you need while keeping your web applications fast and lightweight.</p>
@@ -90,75 +90,75 @@
 
 
       </div>
-      <section class="mx-3 p-6" id="why">
-        <h2 class="ml-6 mb-8 font-bold  text-4xl font-intra group cursor-default ">
+      <section class="mx-3 p-3 md:p-6" id="why">
+        <h2 class="ml-2 md:ml-6 mb-3 md:mb-8 font-bold  text-[1.6rem] md:text-4xl font-intra group cursor-default ">
           Why Choose
           <span class="">Clip<span
               class="inline-block transform transition-transform duration-500 group-hover:rotate-180 group-hover:text-persimmon-300 group-hover:font-extrabold">X</span>.JS?</span>
           <i data-clipx-text="<%= baseUrl  %>#why"
             class="ri-link opacity-60 hidden transform duration-500 group-hover:inline-block hover:cursor-pointer"></i>
         </h2>
-        <div class="flex flex-wrap ml-6">
-          <div class="w-full sm:w-1/2 px-4 mb-8">
-            <h4 class="font-semibold text-2xl mb-4">1. Lightweight with More Features</h4>
-            <ul class="ml-6">
+        <div class="flex flex-wrap ml-2 md:ml-6">
+          <div class="w-full sm:w-1/2 pl-2 md:px-4 mb-8">
+            <h4 class="font-semibold text-xl md:text-2xl mb-4">1. Lightweight with More Features</h4>
+            <ul class="ml-2 md:ml-6 text-base">
               <li class="mb-3 leading-relaxed">
                 <i class="ri-pushpin-line"></i> <b>Size 2KB Only :</b>
                 <br>
-                <div class="ml-6">At just 2KB, clipx.js is smaller than most clipboard libraries making it ideal for
+                <div class="ml-2 md:ml-6 text-sm md:text-base">At just 2KB, clipx.js is smaller than most clipboard libraries making it ideal for
                   performance-conscious projects.</div>
               </li>
               <li class="mb-3 leading-relaxed">
                 <i class="ri-pushpin-line"></i> <b>Integrated Feedback System :</b>
                 <br>
-                <div class="ml-6">Unlike other libraries, clipx.js comes with built-in toast notifications and
+                <div class="ml-2 md:ml-6 text-sm md:text-base">Unlike other libraries, clipx.js comes with built-in toast notifications and
                   customizable messages to inform users of successful or failed clipboard actions. No need to integrate
                   additional libraries for basic UI feedback.</div>
               </li>
             </ul>
           </div>
-          <div class="w-full sm:w-1/2 px-4 mb-8">
-            <h4 class="font-semibold text-2xl mb-4">2. Customization and Flexibility</h4>
-            <ul class="ml-6">
+          <div class="w-full sm:w-1/2 pl-2 md:px-4 mb-8">
+            <h4 class="font-semibold text-xl md:text-2xl mb-4">2. Customization and Flexibility</h4>
+            <ul class="ml-2 md:ml-6 text-base">
               <li class="mb-3 leading-relaxed">
                 <i class="ri-pushpin-line"></i> <b>Customizable Toasts :</b>
                 <br>
-                <div class="ml-6">Style your toast notifications to match your application's design. Choose the
+                <div class="ml-2 md:ml-6 text-sm md:text-base">Style your toast notifications to match your application's design. Choose the
                   position, duration, and even add custom styles effortlessly.</div>
               </li>
               <li class="mb-3 leading-relaxed">
                 <i class="ri-pushpin-line"></i> <b>Message Control :</b>
                 <br>
-                <div class="ml-6">Disable or modify the default "Copied !" message as needed, or show only the toast
+                <div class="ml-2 md:ml-6 text-sm md:text-base">Disable or modify the default "Copied !" message as needed, or show only the toast
                   without altering the element's text content. This flexibility ensures clipx.js fits seamlessly into
                   your existing UI.</div>
               </li>
             </ul>
           </div>
-          <div class="w-full sm:w-1/2 px-4 mb-8">
-            <h4 class="font-semibold text-2xl mb-4">3. Easy Integration</h4>
-            <ul class="ml-6">
+          <div class="w-full sm:w-1/2 pl-2 md:px-4 mb-8">
+            <h4 class="font-semibold text-xl md:text-2xl mb-4">3. Easy Integration</h4>
+            <ul class="ml-2 md:ml-6 text-base">
               <li class="mb-3 leading-relaxed">
                 <i class="ri-pushpin-line"></i> <b>Simple API:</b>
                 <br>
-                <div class="ml-6">clipx.js is designed for ease of use, with a straightforward API that requires minimal
+                <div class="ml-2 md:ml-6 text-sm md:text-base">clipx.js is designed for ease of use, with a straightforward API that requires minimal
                   setup. Attach clipboard functionality to any element with just a few lines of code.</div>
               </li>
               <li class="mb-3 leading-relaxed">
                 <i class="ri-pushpin-line"></i> <b>Broad Compatibility:</b>
                 <br>
-                <div class="ml-6">Supports both modern and older browsers with fallback mechanisms, ensuring reliable
+                <div class="ml-2 md:ml-6 text-sm md:text-base">Supports both modern and older browsers with fallback mechanisms, ensuring reliable
                   clipboard operations across various environments.</div>
               </li>
             </ul>
           </div>
-          <div class="w-full sm:w-1/2 px-4 mb-8">
-            <h4 class="font-semibold text-2xl mb-4">4. Robust Error Handling</h4>
-            <ul class="ml-6">
+          <div class="w-full sm:w-1/2 pl-2 md:px-4 mb-8">
+            <h4 class="font-semibold text-xl md:text-2xl mb-4">4. Robust Error Handling</h4>
+            <ul class="ml-2 md:ml-6 text-base">
               <li class="mb-3 leading-relaxed">
                 <i class="ri-pushpin-line"></i> <b>Built-in Error Handling:</b>
                 <br>
-                <div class="ml-6">clipx.js doesn't just fail silently. It provides clear error feedback through
+                <div class="ml-2 md:ml-6 text-sm md:text-base">clipx.js doesn't just fail silently. It provides clear error feedback through
                   customizable toast notifications, making it easier to debug and improve user experience.</div>
               </li>
             </ul>
@@ -167,26 +167,25 @@
 
 
       </section>
-      <section class="mx-3 p-6" id="installation">
-        <h2 class="ml-6 mb-2 font-bold  text-4xl font-intra group cursor-default ">
+      <section class="mx-3 p-3 md:p-6" id="installation">
+        <h2 class="ml-2 md:ml-6 mb-3 md:mb-8 font-bold  text-[1.6rem] md:text-4xl font-intra group cursor-default ">
           Installation
           <i data-clipx-text="<%= baseUrl  %>#installation"
             class="ri-link opacity-60 hidden transform duration-500 group-hover:inline-block hover:cursor-pointer"></i>
         </h2>
 
-        <p class="ml-8 mb-8">To use ClipX.js in your project, you can include it in your HTML file via a CDN or import
+        <p class="ml-2 text-[14px] md:text-base  md:ml-8 mb-8">To use ClipX.js in your project, you can include it in your HTML file via a CDN or import
           it in js by using node.</p>
-        <div class="flex flex-wrap ml-6" id="npm">
-          <div class="w-full  px-4 mb-8">
-            <h4 class="font-semibold text-2xl mb-4 group cursor-default"> 1. Via NPM <i
+        <div class="flex flex-wrap ml-2 md:ml-6" id="npm">
+          <div class="w-full  pl-2 md:px-4 mb-8">
+            <h4 class="font-semibold text-xl md:text-2xl mb-4 group cursor-default"> 1. Via NPM <i
                 data-clipx-text="<%= baseUrl  %>#npm"
                 class="ri-link opacity-60 hidden transform duration-500 group-hover:inline-block hover:cursor-pointer"></i>
             </h4>
-            <ul class="ml-6">
+            <ul class="ml-2 md:ml-6 text-base">
               <li class="mb-3 leading-relaxed">
-                <b>If you're using Node.js or a module bundler, you can install ClipX.js via npm : </b>
-                <br>
-                <div class="mx-2 mt-4 mb-3">
+                <p class="text-[14px] md:text-base">If you're using Node.js or a module bundler, you can install ClipX.js via npm : </p>
+                <div class="md:mx-2 mt-3 mb-3">
 
                   <div class="bg-bunker-800 rounded-md overflow-hidden text-bunker-300 ">
                     <div class="flex justify-between items-center mx-5 py-1"><span class="text-sm">NPM</span>
@@ -221,18 +220,17 @@
           </div>
 
         </div>
-        <div class="flex flex-wrap ml-6" id="cdn">
-          <div class="w-full  px-4 mb-8">
-            <h4 class="font-semibold text-2xl mb-4 group cursor-default"> 2. Via CDN <i
+        <div class="flex flex-wrap ml-2 md:ml-6" id="cdn">
+          <div class="w-full  pl-2 md:px-4 mb-8">
+            <h4 class="font-semibold text-xl md:text-2xl mb-4 group cursor-default"> 2. Via CDN <i
                 data-clipx-text="<%= baseUrl  %>#cdn"
                 class="ri-link opacity-60 hidden transform duration-500 group-hover:inline-block hover:cursor-pointer"></i>
             </h4>
-            <ul class="ml-6">
+            <ul class="ml-2 md:ml-6 text-base">
               <li class="mb-3 leading-relaxed">
-                <b>Add the following &lt;script&gt; tag to your HTML file to include ClipX.js from a CDN ( use only one
-                  cdn ) :</b>
-                <br>
-                <div class="mx-2 mt-4 mb-2">
+                <p class="text-[14px] md:text-base">Add the following &lt;script&gt; tag to your HTML file to include ClipX.js from a CDN ( use only one
+                  cdn ) :</p> 
+                <div class="md:mx-2 mt-3 mb-2">
 
                   <div class="bg-bunker-800 rounded-md overflow-hidden text-bunker-300 ">
                     <div class="flex justify-between items-center mx-5 py-1"><span class="text-sm">cdn - jsdelivr</span>
@@ -247,7 +245,7 @@
                 </div>
 
                 <p class="text-center">or</p>
-                <div class="mx-2 mt-3">
+                <div class="md:mx-2 mt-3">
 
                   <div class="bg-bunker-800 rounded-md overflow-hidden text-bunker-300 ">
                     <div class="flex justify-between items-center mx-5 py-1"><span class="text-sm">cdn - unpkg</span> <i
