@@ -885,6 +885,10 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.text-\[\] {
+  color: ;
+}
+
 .text-\[4xl\] {
   color: 4xl;
 }
