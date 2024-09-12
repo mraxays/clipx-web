@@ -625,6 +625,10 @@ video {
   margin-left: 0.75rem;
 }
 
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
 .inline-block {
   display: inline-block;
 }
@@ -844,6 +848,10 @@ video {
 
 .text-\[12px\] {
   font-size: 12px;
+}
+
+.text-\[13px\] {
+  font-size: 13px;
 }
 
 .font-bold {
