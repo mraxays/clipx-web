@@ -34,7 +34,7 @@
     <meta property="og:locale" content="en_US">
 
     <link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
 
     <link rel="stylesheet" href="/stylesheets/style.css">
     <link rel="stylesheet" href="/stylesheets/custom.css">
@@ -78,7 +78,7 @@
               <a href="" class="group hover:underline hover:underline-offset-4">Clip<span
                   class="inline-block transform transition-transform duration-500 group-hover:rotate-180 group-hover:text-persimmon-300 group-hover:font-extrabold">X</span>.JS</a>
             </h1>
-            <h5 class="text-xl md:text-4xl font-medium mb-3  md:mb-5 opacity-75">The Smarter Clipboard Solution</h5>
+            <h3 class="text-xl md:text-4xl font-medium mb-3  md:mb-5 opacity-75">The Smarter Clipboard Solution</h3>
             <p class="leading-relaxed text-sm md:text-base">Discover the ultimate in clipboard management with ClipX.js
               – a library designed
               to
@@ -298,8 +298,8 @@
                 <p class="text-[14px] md:text-base">You can download the ZIP file directly from GitHub by using the
                   following link : </p>
                 <a href="https://github.com/MrAkshayAS/clipx/archive/refs/heads/main.zip"
-                  class="text-persimmon-400 hover:text-persimmon-300 active:text-persimmon-500" target="_blank"
-                  rel="noopener noreferrer"> Download lipX ZIP</a>
+                  class="text-persimmon-400 font-bold hover:text-persimmon-300 active:text-persimmon-500"
+                  target="_blank" rel="noopener noreferrer"> Download lipX ZIP</a>
 
           </div>
 
@@ -422,12 +422,381 @@ var clipx = new clipx();</code></pre>
 
 
       </section>
+      <section class="mx-3 p-3 md:p-6" id="attach-functionality">
+        <h2 class="ml-2 md:ml-6 mb-3 md:mb-8 font-bold text-[1.6rem] md:text-4xl font-intra group cursor-default">
+          Attaching <span class="">Clip<span
+              class="inline-block transform transition-transform duration-500 group-hover:rotate-180 group-hover:text-persimmon-300 group-hover:font-extrabold">X</span>.JS</span>
+          Functionality
+          <i data-clipx-text="<%= baseUrl  %>#attach-functionality"
+            class="ri-link opacity-60 md:hidden transform duration-500 group-hover:inline-block hover:cursor-pointer"></i>
+        </h2>
+
+        <p class="ml-2 text-[14px] md:text-base md:ml-8 mb-8">
+          To bind ClipX.js functionality to elements, use the attach method with appropriate selectors. This method will
+          enable clipboard operations on elements with the specified attributes or classes.
+        </p>
+
+        <div class="flex flex-wrap ml-2 md:ml-6" id="attach-examples">
+          <div class="w-full pl-0 md:px-4 mb-8">
+            <h4 class="font-semibold text-xl md:text-2xl mb-4 group cursor-default">Example: Using Data Attributes
+              <i data-clipx-text="<%= baseUrl  %>#attach-data-attributes"
+                class="ri-link opacity-60 md:hidden transform duration-500 group-hover:inline-block hover:cursor-pointer"></i>
+            </h4>
+            <p class="text-[13px] md:text-base ml-3">
+              Apply ClipX.js to elements with <span
+                class="bg-bunker-700 px-2 py-[2px] font-mono rounded-md">data-clipx-text</span> or <span
+                class="bg-bunker-700 px-2 py-[2px] font-mono rounded-md">data-clipx-target</span> attributes.
+            </p>
+            <div class="md:mx-2 mt-3 mb-3">
+              <div class="bg-bunker-800 rounded-md overflow-hidden text-bunker-300">
+                <div class="flex justify-between items-center mx-5 py-1"><span class="text-sm">JavaScript</span>
+                  <i data-clipx-target="#attach-data" title="copy link" data-clipx-msg="Code copied!"
+                    class="ri-file-copy-line opacity-90 transform duration-500 group-hover:inline-block hover:cursor-pointer"></i>
+                </div>
+                <pre
+                  class="relative group"><code id="attach-data" class="javascript scroll-container">clipx.attach("[data-clipx-text], [data-clipx-target]");</code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-full pl-0 md:px-4 mb-8">
+            <h4 class="font-semibold text-xl md:text-2xl mb-4 group cursor-default">Example: Using Class Names
+              <i data-clipx-text="<%= baseUrl  %>#attach-class-names"
+                class="ri-link opacity-60 md:hidden transform duration-500 group-hover:inline-block hover:cursor-pointer"></i>
+            </h4>
+            <p class="text-[13px] md:text-base ml-3">
+              Alternatively, apply ClipX.js to elements with specific classes.
+            </p>
+            <div class="md:mx-2 mt-3 mb-3">
+              <div class="bg-bunker-800 rounded-md overflow-hidden text-bunker-300">
+                <div class="flex justify-between items-center mx-5 py-1"><span class="text-sm">JavaScript</span>
+                  <i data-clipx-target="#attach-classes" title="copy link" data-clipx-msg="Code copied!"
+                    class="ri-file-copy-line opacity-90 transform duration-500 group-hover:inline-block hover:cursor-pointer"></i>
+                </div>
+                <pre
+                  class="relative group"><code id="attach-classes" class="javascript scroll-container">clipx.attach(".clipx, .copy-btn, .your-class");</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="mx-3 p-3 md:p-6" id="attributes-overview">
+        <h2 class="ml-2 md:ml-6 mb-3 md:mb-8 font-bold text-[1.6rem] md:text-4xl font-intra group cursor-default">
+          Attributes <span class="">Overview</span>
+          <i data-clipx-text="<%= baseUrl %>#attributes-overview"
+            class="ri-link opacity-60 md:hidden transform duration-500 group-hover:inline-block hover:cursor-pointer"></i>
+        </h2>
+
+        <p class="ml-2 text-[14px] md:text-base md:ml-8 mb-8">
+          This section provides an overview of all the attributes available for ClipX.js.
+        </p>
+
+        <div class="flex flex-wrap ml-2 md:ml-6" id="attributes-list">
+          <div class="w-full pl-0 md:px-4 mb-8">
+            <ul class="ml-2 md:ml-6 text-base list-disc list-inside">
+              <li class="mb-3 leading-relaxed">
+                <span class="bg-bunker-700 px-2 py-[2px] font-mono rounded-md">data-clipx-target</span>: Element
+                selector for text source.
+              </li>
+              <li class="mb-3 leading-relaxed">
+                <span class="bg-bunker-700 px-2 py-[2px] font-mono rounded-md">data-clipx-text</span>: Static text to
+                copy or cut.
+              </li>
+              <li class="mb-3 leading-relaxed">
+                <span class="bg-bunker-700 px-2 py-[2px] font-mono rounded-md">data-clipx-cut</span>: Toggle cut
+                operation.
+              </li>
+              <li class="mb-3 leading-relaxed">
+                <span class="bg-bunker-700 px-2 py-[2px] font-mono rounded-md">data-clipx-msg</span>: Custom success
+                message.
+              </li>
+              <li class="mb-3 leading-relaxed">
+                <span class="bg-bunker-700 px-2 py-[2px] font-mono rounded-md">data-clipx-toast</span>: Show only toast,
+                no text change.
+              </li>
+              <li class="mb-3 leading-relaxed">
+                <span class="bg-bunker-700 px-2 py-[2px] font-mono rounded-md">data-clipx-disable-msg</span>: Disable
+                element text change.
+              </li>
+              <li class="mb-3 leading-relaxed">
+                <span class="bg-bunker-700 px-2 py-[2px] font-mono rounded-md">data-clipx-disable-toast</span>: Disable
+                toast notification.
+              </li>
+              <li class="mb-3 leading-relaxed">
+                <span class="bg-bunker-700 px-2 py-[2px] font-mono rounded-md">data-clipx-toast-position</span>:
+                Position of the toast (top/bottom).
+              </li>
+              <li class="mb-3 leading-relaxed">
+                <span class="bg-bunker-700 px-2 py-[2px] font-mono rounded-md">data-clipx-duration</span>: Duration of
+                toast visibility.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <h2 class="ml-2 md:ml-6 mb-3 md:mb-8 font-bold text-[1.6rem] md:text-4xl font-intra group cursor-default">
+          Example <span class="">Attributes</span>
+          <i data-clipx-text="<%= baseUrl %>#attributes-examples"
+              class="ri-link opacity-60 md:hidden transform duration-500 group-hover:inline-block hover:cursor-pointer"></i>
+      </h2>
+        <div class="flex flex-wrap ml-2 md:ml-6" id="attributes-examples-list">
+          <div class="w-full pl-0 md:px-4 mb-8">
+            <h4 class="font-semibold text-xl md:text-2xl mb-4 group cursor-default">
+              data-clipx-target
+              <i data-clipx-text="<%= baseUrl %>#data-clipx-target"
+                class="ri-link opacity-60 md:hidden transform duration-500 group-hover:inline-block hover:cursor-pointer"></i>
+            </h4>
+            <p class="text-[13px] md:text-base ml-3">
+              <b>Description:</b> Specifies the target element whose text will be copied to the clipboard when the
+              button is clicked.
+            </p>
+            <p class="text-[13px] md:text-base ml-3">
+              <b>Example:</b>
+            </p>
+            <div class="md:mx-2 mt-3 mb-3">
+              <div class="bg-bunker-800 rounded-md overflow-hidden text-bunker-300">
+                <div class="flex justify-between items-center mx-5 py-1"><span class="text-sm">HTML</span>
+                  <i data-clipx-target="#ex-target" title="copy link" data-clipx-msg="Code copied!"
+                    class="ri-file-copy-line opacity-90 transform duration-500 group-hover:inline-block hover:cursor-pointer"></i>
+                </div>
+                <pre class="relative group"><code id="ex-target" class="html scroll-container">&lt;button class="copy-btn" data-clipx-target="#text-to-copy"&gt;Copy Text&lt;/button&gt;
+&lt;p id="text-to-copy"&gt;This is the text to be copied.&lt;/p&gt;</code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-full pl-0 md:px-4 mb-8">
+            <h4 class="font-semibold text-xl md:text-2xl mb-4 group cursor-default">
+              data-clipx-text
+              <i data-clipx-text="<%= baseUrl %>#data-clipx-text"
+                class="ri-link opacity-60 md:hidden transform duration-500 group-hover:inline-block hover:cursor-pointer"></i>
+            </h4>
+            <p class="text-[13px] md:text-base ml-3">
+              <b>Description:</b> Defines a static text string that will be copied to the clipboard when the button is
+              clicked.
+            </p>
+            <p class="text-[13px] md:text-base ml-3">
+              <b>Example:</b>
+            </p>
+            <div class="md:mx-2 mt-3 mb-3">
+              <div class="bg-bunker-800 rounded-md overflow-hidden text-bunker-300">
+                <div class="flex justify-between items-center mx-5 py-1"><span class="text-sm">HTML</span>
+                  <i data-clipx-target="#ex-text" title="copy link" data-clipx-msg="Code copied!"
+                    class="ri-file-copy-line opacity-90 transform duration-500 group-hover:inline-block hover:cursor-pointer"></i>
+                </div>
+                <pre
+                  class="relative group"><code id="ex-text" class="html scroll-container">&lt;button class="copy-btn" data-clipx-text="Static text to copy"&gt;Copy Static Text&lt;/button&gt;</code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-full pl-0 md:px-4 mb-8">
+            <h4 class="font-semibold text-xl md:text-2xl mb-4 group cursor-default">
+              data-clipx-cut
+              <i data-clipx-text="<%= baseUrl %>#data-clipx-cut"
+                class="ri-link opacity-60 md:hidden transform duration-500 group-hover:inline-block hover:cursor-pointer"></i>
+            </h4>
+            <p class="text-[13px] md:text-base ml-3">
+              <b>Description:</b> Cuts the text from the specified element, copying it to the clipboard and clearing
+              the element's content.
+            </p>
+            <p class="text-[13px] md:text-base ml-3">
+              <b>Example:</b>
+            </p>
+            <div class="md:mx-2 mt-3 mb-3">
+              <div class="bg-bunker-800 rounded-md overflow-hidden text-bunker-300">
+                <div class="flex justify-between items-center mx-5 py-1"><span class="text-sm">HTML</span>
+                  <i data-clipx-target="#ex-cut" title="copy link" data-clipx-msg="Code copied!"
+                    class="ri-file-copy-line opacity-90 transform duration-500 group-hover:inline-block hover:cursor-pointer"></i>
+                </div>
+                <pre class="relative group"><code id="ex-cut" class="html scroll-container">&lt;textarea id="text-to-cut"&gt;This text will be cut.&lt;/textarea&gt;
+&lt;button class="copy-btn" data-clipx-target="#text-to-cut" data-clipx-cut&gt;Cut Text&lt;/button&gt;</code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-full pl-0 md:px-4 mb-8">
+            <h4 class="font-semibold text-xl md:text-2xl mb-4 group cursor-default">
+              data-clipx-msg
+              <i data-clipx-text="<%= baseUrl %>#data-clipx-msg"
+                class="ri-link opacity-60 md:hidden transform duration-500 group-hover:inline-block hover:cursor-pointer"></i>
+            </h4>
+            <p class="text-[13px] md:text-base ml-3">
+              <b>Description:</b> Copies the specified text to the clipboard and shows a toast notification with a
+              custom message.
+            </p>
+            <p class="text-[13px] md:text-base ml-3">
+              <b>Example:</b>
+            </p>
+            <div class="md:mx-2 mt-3 mb-3">
+              <div class="bg-bunker-800 rounded-md overflow-hidden text-bunker-300">
+                <div class="flex justify-between items-center mx-5 py-1"><span class="text-sm">HTML</span>
+                  <i data-clipx-target="#ex-msg" title="copy link" data-clipx-msg="Code copied!"
+                    class="ri-file-copy-line opacity-90 transform duration-500 group-hover:inline-block hover:cursor-pointer"></i>
+                </div>
+                <pre
+                  class="relative group"><code id="ex-msg" class="html scroll-container">&lt;button class="copy-btn" data-clipx-text="Another static text" data-clipx-msg="Text copied successfully!"&gt;Copy with Custom Message&lt;/button&gt;</code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-full pl-0 md:px-4 mb-8">
+            <h4 class="font-semibold text-xl md:text-2xl mb-4 group cursor-default">
+              data-clipx-toast
+              <i data-clipx-text="<%= baseUrl %>#data-clipx-toast"
+                class="ri-link opacity-60 md:hidden transform duration-500 group-hover:inline-block hover:cursor-pointer"></i>
+            </h4>
+            <p class="text-[13px] md:text-base ml-3">
+              <b>Description:</b> Displays a toast notification with the copied text. The button text remains
+              unchanged.
+            </p>
+            <p class="text-[13px] md:text-base ml-3">
+              <b>Example:</b>
+            </p>
+            <div class="md:mx-2 mt-3 mb-3">
+              <div class="bg-bunker-800 rounded-md overflow-hidden text-bunker-300">
+                <div class="flex justify-between items-center mx-5 py-1"><span class="text-sm">HTML</span>
+                  <i data-clipx-target="#ex-toast" title="copy link" data-clipx-msg="Code copied!"
+                    class="ri-file-copy-line opacity-90 transform duration-500 group-hover:inline-block hover:cursor-pointer"></i>
+                </div>
+                <pre
+                  class="relative group"><code id="ex-toast" class="html scroll-container">&lt;button class="copy-btn" data-clipx-text="Text to copy" data-clipx-toast&gt;Copy with Toast Only&lt;/button&gt;</code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-full pl-0 md:px-4 mb-8">
+            <h4 class="font-semibold text-xl md:text-2xl mb-4 group cursor-default">
+              data-clipx-disable-msg
+              <i data-clipx-text="<%= baseUrl %>#data-clipx-disable-msg"
+                class="ri-link opacity-60 md:hidden transform duration-500 group-hover:inline-block hover:cursor-pointer"></i>
+            </h4>
+            <p class="text-[13px] md:text-base ml-3">
+              <b>Description:</b> Shows a toast notification without changing the button's text content.
+            </p>
+            <p class="text-[13px] md:text-base ml-3">
+              <b>Example:</b>
+            </p>
+            <div class="md:mx-2 mt-3 mb-3">
+              <div class="bg-bunker-800 rounded-md overflow-hidden text-bunker-300">
+                <div class="flex justify-between items-center mx-5 py-1"><span class="text-sm">HTML</span>
+                  <i data-clipx-target="#ex-disable-msg" title="copy link" data-clipx-msg="Code copied!"
+                    class="ri-file-copy-line opacity-90 transform duration-500 group-hover:inline-block hover:cursor-pointer"></i>
+                </div>
+                <pre
+                  class="relative group"><code id="ex-disable-msg" class="html scroll-container">&lt;button class="copy-btn" data-clipx-text="Text to copy" data-clipx-disable-msg&gt;Copy with Toast Only, No Text Change&lt;/button&gt;</code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-full pl-0 md:px-4 mb-8">
+            <h4 class="font-semibold text-xl md:text-2xl mb-4 group cursor-default">
+              data-clipx-disable-toast & data-clipx-disable-msg
+              <i data-clipx-text="<%= baseUrl %>#data-clipx-disable-toast-data-clipx-disable-msg"
+                class="ri-link opacity-60 md:hidden transform duration-500 group-hover:inline-block hover:cursor-pointer"></i>
+            </h4>
+            <p class="text-[13px] md:text-base ml-3">
+              <b>Description:</b> Copies the specified text to the clipboard without showing a toast notification and
+              changing text contents.
+            </p>
+            <p class="text-[13px] md:text-base ml-3">
+              <b>Example:</b>
+            </p>
+            <div class="md:mx-2 mt-3 mb-3">
+              <div class="bg-bunker-800 rounded-md overflow-hidden text-bunker-300">
+                <div class="flex justify-between items-center mx-5 py-1"><span class="text-sm">HTML</span>
+                  <i data-clipx-target="#ex-disable-toast-msg" title="copy link" data-clipx-msg="Code copied!"
+                    class="ri-file-copy-line opacity-90 transform duration-500 group-hover:inline-block hover:cursor-pointer"></i>
+                </div>
+                <pre
+                  class="relative group"><code id="ex-disable-toast-msg" class="html scroll-container">&lt;button class="copy-btn" data-clipx-text="Text to copy" data-clipx-disable-toast data-clipx-disable-msg&gt;Copy without Toast & with Change Text&lt;/button&gt;</code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-full pl-0 md:px-4 mb-8">
+            <h4 class="font-semibold text-xl md:text-2xl mb-4 group cursor-default">
+              data-clipx-disable-toast
+              <i data-clipx-text="<%= baseUrl %>#data-clipx-disable-toast"
+                class="ri-link opacity-60 md:hidden transform duration-500 group-hover:inline-block hover:cursor-pointer"></i>
+            </h4>
+            <p class="text-[13px] md:text-base ml-3">
+              <b>Description:</b> Copies the specified text to the clipboard without showing a toast notification.
+            </p>
+            <p class="text-[13px] md:text-base ml-3">
+              <b>Example:</b>
+            </p>
+            <div class="md:mx-2 mt-3 mb-3">
+              <div class="bg-bunker-800 rounded-md overflow-hidden text-bunker-300">
+                <div class="flex justify-between items-center mx-5 py-1"><span class="text-sm">HTML</span>
+                  <i data-clipx-target="#ex-disable-toast" title="copy link" data-clipx-msg="Code copied!"
+                    class="ri-file-copy-line opacity-90 transform duration-500 group-hover:inline-block hover:cursor-pointer"></i>
+                </div>
+                <pre
+                  class="relative group"><code id="ex-disable-toast" class="html scroll-container">&lt;button class="copy-btn" data-clipx-text="Text to copy" data-clipx-disable-toast&gt;Copy without Toast&lt;/button&gt;</code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-full pl-0 md:px-4 mb-8">
+            <h4 class="font-semibold text-xl md:text-2xl mb-4 group cursor-default">
+              data-clipx-toast-position
+              <i data-clipx-text="<%= baseUrl %>#data-clipx-toast-position"
+                class="ri-link opacity-60 md:hidden transform duration-500 group-hover:inline-block hover:cursor-pointer"></i>
+            </h4>
+            <p class="text-[13px] md:text-base ml-3">
+              <b>Description:</b> Defines the position of the toast notification (top or bottom).
+            </p>
+            <p class="text-[13px] md:text-base ml-3">
+              <b>Example:</b>
+            </p>
+            <div class="md:mx-2 mt-3 mb-3">
+              <div class="bg-bunker-800 rounded-md overflow-hidden text-bunker-300">
+                <div class="flex justify-between items-center mx-5 py-1"><span class="text-sm">HTML</span>
+                  <i data-clipx-target="#ex-toast-position" title="copy link" data-clipx-msg="Code copied!"
+                    class="ri-file-copy-line opacity-90 transform duration-500 group-hover:inline-block hover:cursor-pointer"></i>
+                </div>
+                <pre
+                  class="relative group"><code id="ex-toast-position" class="html scroll-container">&lt;button class="copy-btn" data-clipx-text="Text to copy" data-clipx-toast data-clipx-toast-position="top"&gt;Copy with Toast on Top&lt;/button&gt;
+&lt;button class="copy-btn" data-clipx-text="Text to copy" data-clipx-toast data-clipx-toast-position="bottom"&gt;Copy with Toast on Bottom&lt;/button&gt;</code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-full pl-0 md:px-4 mb-8">
+            <h4 class="font-semibold text-xl md:text-2xl mb-4 group cursor-default">
+              data-clipx-duration
+              <i data-clipx-text="<%= baseUrl %>#data-clipx-duration"
+                class="ri-link opacity-60 md:hidden transform duration-500 group-hover:inline-block hover:cursor-pointer"></i>
+            </h4>
+            <p class="text-[13px] md:text-base ml-3">
+              <b>Description:</b> Sets the duration (in milliseconds) for which the toast notification is visible
+              before it fades out.
+            </p>
+            <p class="text-[13px] md:text-base ml-3">
+              <b>Example:</b>
+            </p>
+            <div class="md:mx-2 mt-3 mb-3">
+              <div class="bg-bunker-800 rounded-md overflow-hidden text-bunker-300">
+                <div class="flex justify-between items-center mx-5 py-1"><span class="text-sm">HTML</span>
+                  <i data-clipx-target="#ex-duration" title="copy link" data-clipx-msg="Code copied!"
+                    class="ri-file-copy-line opacity-90 transform duration-500 group-hover:inline-block hover:cursor-pointer"></i>
+                </div>
+                <pre
+                  class="relative group"><code id="ex-duration" class="html scroll-container">&lt;button class="copy-btn" data-clipx-text="Text to copy" data-clipx-toast data-clipx-duration="3000"&gt;Copy with 3 Seconds Toast&lt;/button&gt;
+&lt;button class="copy-btn" data-clipx-text="Text to copy" data-clipx-duration="3000"&gt;Copy with 3 Seconds Toast & Content Change&lt;/button&gt;
+&lt;button class="copy-btn" data-clipx-text="Text to copy" data-clipx-disable-toast data-clipx-duration="3000"&gt;Copy 3 sec Content Change&lt;/button&gt;</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+
     </div>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="/javascripts/clipx.min.js"></script>
     <script>
       var clipx = new clipx();
