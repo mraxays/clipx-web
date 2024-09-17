@@ -770,6 +770,10 @@ video {
   padding-left: 0.5rem;
 }
 
+.pl-0 {
+  padding-left: 0px;
+}
+
 .text-center {
   text-align: center;
 }
@@ -982,6 +986,10 @@ video {
 
   .md\:flex {
     display: flex;
+  }
+
+  .md\:hidden {
+    display: none;
   }
 
   .md\:p-6 {
