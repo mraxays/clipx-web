@@ -605,6 +605,10 @@ video {
   margin-left: 0.5rem;
 }
 
+.ml-3 {
+  margin-left: 0.75rem;
+}
+
 .mt-20 {
   margin-top: 5rem;
 }
@@ -615,18 +619,6 @@ video {
 
 .mt-6 {
   margin-top: 1.5rem;
-}
-
-.mr-2 {
-  margin-right: 0.5rem;
-}
-
-.ml-3 {
-  margin-left: 0.75rem;
-}
-
-.mt-2 {
-  margin-top: 0.5rem;
 }
 
 .inline-block {
@@ -681,6 +673,10 @@ video {
   scroll-behavior: smooth;
 }
 
+.rounded {
+  border-radius: 0.25rem;
+}
+
 .rounded-3xl {
   border-radius: 1.5rem;
 }
@@ -701,8 +697,9 @@ video {
   border-radius: 0.75rem;
 }
 
-.rounded {
-  border-radius: 0.25rem;
+.bg-bunker-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(76 77 88 / var(--tw-bg-opacity));
 }
 
 .bg-bunker-800 {
@@ -723,16 +720,6 @@ video {
   background-color: rgb(30 41 59 / 0.5);
 }
 
-.bg-bunker-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(184 185 193 / var(--tw-bg-opacity));
-}
-
-.bg-bunker-700 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(76 77 88 / var(--tw-bg-opacity));
-}
-
 .bg-\[url\(\'\/images\/galaxy\.jpg\'\)\] {
   background-image: url('/images/galaxy.jpg');
 }
@@ -747,6 +734,11 @@ video {
 
 .p-3 {
   padding: 0.75rem;
+}
+
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 .px-3 {
@@ -769,16 +761,6 @@ video {
   padding-bottom: 0.75rem;
 }
 
-.px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
-
-.py-\[\] {
-  padding-top: ;
-  padding-bottom: ;
-}
-
 .py-\[2px\] {
   padding-top: 2px;
   padding-bottom: 2px;
@@ -786,10 +768,6 @@ video {
 
 .pl-2 {
   padding-left: 0.5rem;
-}
-
-.pb-1 {
-  padding-bottom: 0.25rem;
 }
 
 .text-center {
@@ -815,6 +793,10 @@ video {
 
 .text-\[1\.9rem\] {
   font-size: 1.9rem;
+}
+
+.text-\[13px\] {
+  font-size: 13px;
 }
 
 .text-\[14px\] {
@@ -844,14 +826,6 @@ video {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
-}
-
-.text-\[12px\] {
-  font-size: 12px;
-}
-
-.text-\[13px\] {
-  font-size: 13px;
 }
 
 .font-bold {
@@ -885,19 +859,14 @@ video {
   color: rgb(255 209 200 / var(--tw-text-opacity));
 }
 
-.text-white {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
 .text-persimmon-400 {
   --tw-text-opacity: 1;
   color: rgb(252 120 93 / var(--tw-text-opacity));
 }
 
-.text-persimmon-300 {
+.text-white {
   --tw-text-opacity: 1;
-  color: rgb(255 178 162 / var(--tw-text-opacity));
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .opacity-60 {
