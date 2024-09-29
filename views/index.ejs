@@ -1,7 +1,6 @@
 <% baseUrl="https://clipx.dzr.app/" %>
   <!DOCTYPE html>
   <html lang="en">
-
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,10 +20,10 @@
     <meta property="og:description"
       content="ClipX JS is a lightweight and feature-rich clipboard library for JavaScript. It provides advanced clipboard management, customizable notifications, and seamless integration for copying and cutting text.">
 
-    <meta property="og:url" content="https://clipx.dzr.app">
+    <meta property="og:url" content="<%= baseUrl %>">
     <meta property="og:type" content="website">
 
-    <link rel="canonical" href="https://clipx.dzr.app">
+    <link rel="canonical" href="<%= baseUrl %>">
 
     <meta property="og:site_name" content="ClipX JS">
     <meta property="og:locale" content="en_US">
@@ -780,7 +779,7 @@ var clipx = new clipx();</code></pre>
         "@type": "SoftwareApplication",
         "name": "ClipX JS",
         "description": "ClipX.JS is a lightweight and feature-rich clipboard library for JavaScript, providing advanced clipboard management and customizable notifications.",
-        "url": "https://clipx.dzr.app/",
+        "url": "<%= baseUrl %>",
         "applicationCategory": "SoftwareApplication",
         "softwareVersion": "1.0"
       }
