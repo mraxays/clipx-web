@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 router.get('/sitemap.xml', function(req, res, next) {
   res.header('Content-Type', 'application/xml');
 
-  const lastModifiedDate = '2024-09-29'; // Update this as necessary
+  const lastModifiedDate = '2024-09-29';
 
   const sitemapXml = `
     <?xml version="1.0" encoding="UTF-8"?>
@@ -32,14 +32,6 @@ router.get('/sitemap.xml', function(req, res, next) {
       <!-- Section: Documentation -->
       <url>
         <loc>${req.protocol}://${req.get('host')}/#document</loc>
-        <lastmod>${lastModifiedDate}</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-      </url>
-
-      <!-- Section: Uses -->
-      <url>
-        <loc>${req.protocol}://${req.get('host')}/#uses</loc>
         <lastmod>${lastModifiedDate}</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
