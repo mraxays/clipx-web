@@ -3,12 +3,13 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'ClipX JS — The Smarter Clipboard Solution' });
+  res.render('index', { title: 'ClipX JS - Advanced Clipboard Management & Integration' });
 });
 router.get('/sitemap.xml', function(req, res, next) {
   res.header('Content-Type', 'application/xml');
 
-  const lastModifiedDate = '2024-09-29';
+  const today = new Date();
+  const lastModifiedDate = today.toISOString().split('T')[0];
 
   const sitemapXml = `
     <?xml version="1.0" encoding="UTF-8"?>
@@ -17,7 +18,7 @@ router.get('/sitemap.xml', function(req, res, next) {
       <url>
         <loc>${req.protocol}://${req.get('host')}/</loc>
         <lastmod>${lastModifiedDate}</lastmod>
-        <changefreq>monthly</changefreq>
+        <changefreq>weekly</changefreq>
         <priority>1.0</priority>
       </url>
 
@@ -25,7 +26,7 @@ router.get('/sitemap.xml', function(req, res, next) {
       <url>
         <loc>${req.protocol}://${req.get('host')}/#why</loc>
         <lastmod>${lastModifiedDate}</lastmod>
-        <changefreq>monthly</changefreq>
+        <changefreq>weekly</changefreq>
         <priority>0.8</priority>
       </url>
 
@@ -33,7 +34,7 @@ router.get('/sitemap.xml', function(req, res, next) {
       <url>
         <loc>${req.protocol}://${req.get('host')}/#document</loc>
         <lastmod>${lastModifiedDate}</lastmod>
-        <changefreq>monthly</changefreq>
+        <changefreq>weekly</changefreq>
         <priority>0.8</priority>
       </url>
 
@@ -41,7 +42,7 @@ router.get('/sitemap.xml', function(req, res, next) {
       <url>
         <loc>${req.protocol}://${req.get('host')}/#installation</loc>
         <lastmod>${lastModifiedDate}</lastmod>
-        <changefreq>monthly</changefreq>
+        <changefreq>weekly</changefreq>
         <priority>0.8</priority>
       </url>
     </urlset>
