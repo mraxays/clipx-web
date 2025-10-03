@@ -21,35 +21,9 @@ router.get('/sitemap.xml', function(req, res, next) {
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
       </url>
-
-      <!-- Section: Why ClipX -->
-      <url>
-        <loc>${req.protocol}://${req.get('host')}/#why</loc>
-        <lastmod>${lastModifiedDate}</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-      </url>
-
-      <!-- Section: Documentation -->
-      <url>
-        <loc>${req.protocol}://${req.get('host')}/#document</loc>
-        <lastmod>${lastModifiedDate}</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-      </url>
-
-      <!-- Section: Installation -->
-      <url>
-        <loc>${req.protocol}://${req.get('host')}/#installation</loc>
-        <lastmod>${lastModifiedDate}</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-      </url>
     </urlset>
   `;
 
   res.send(sitemapXml.trim());
 });
-
-
 module.exports = router;
