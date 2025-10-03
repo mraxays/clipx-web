@@ -1,11 +1,22 @@
 {
-    "name": "Clipx",
-    "version": 2,
-    "builds": [
-      { "src": "app.js", "use": "@vercel/node" }
-    ],
-    "routes": [
-      { "src": "/public/(.*)", "dest": "/public/$1" },
-      { "src": "/(.*)", "dest": "app.js" }
-    ]
-  }
+  "name": "Clipx",
+  "version": 2,
+  "builds": [
+    { "src": "app.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    {
+      "src": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "ref"
+        }
+      ],
+      "destination": "/",
+      "status": 301
+    },
+    { "src": "/public/(.*)", "dest": "/public/$1" },
+    { "src": "/(.*)", "dest": "app.js" }
+  ]
+}
