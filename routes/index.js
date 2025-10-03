@@ -7,18 +7,14 @@ router.get('/', function(req, res, next) {
 });
 router.get('/sitemap.xml', function(req, res, next) {
   res.header('Content-Type', 'application/xml');
-
-  const today = new Date();
-  const lastModifiedDate = today.toISOString().split('T')[0];
-
   const sitemapXml = `
     <?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
       <!-- Home Page -->
       <url>
         <loc>${req.protocol}://${req.get('host')}/</loc>
-        <lastmod>${lastModifiedDate}</lastmod>
-        <changefreq>weekly</changefreq>
+        <lastmod>2025-10-03</lastmod>
+        <changefreq>monthly</changefreq>
         <priority>1.0</priority>
       </url>
     </urlset>
