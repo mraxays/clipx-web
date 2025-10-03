@@ -8,12 +8,17 @@
     {
       "src": "/",
       "has": [
-        {
-          "type": "query",
-          "key": "ref"
-        }
+        { "type": "query", "key": "ref" }
       ],
-      "destination": "/",
+      "dest": "/",
+      "status": 301
+    },
+    {
+      "src": "/(.*)",
+      "has": [
+        { "type": "query", "key": "ref" }
+      ],
+      "dest": "/$1",
       "status": 301
     },
     { "src": "/public/(.*)", "dest": "/public/$1" },
