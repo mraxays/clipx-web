@@ -6,20 +6,13 @@
   ],
   "routes": [
     {
-      "src": "/",
-      "has": [
-        { "type": "query", "key": "ref" }
-      ],
-      "dest": "/",
-      "status": 301
-    },
-    {
       "src": "/(.*)",
       "has": [
         { "type": "query", "key": "ref" }
       ],
       "dest": "/$1",
-      "status": 301
+      "status": 301,
+      "continue": false
     },
     { "src": "/public/(.*)", "dest": "/public/$1" },
     { "src": "/(.*)", "dest": "app.js" }
