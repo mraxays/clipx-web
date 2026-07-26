@@ -19,7 +19,7 @@ router.get('/sitemap.xml', function(req, res, next) {
       <!-- Home Page -->
       <url>
         <loc>${req.protocol}://${req.get('host')}/</loc>
-        <lastmod>2025-10-03</lastmod>
+        <lastmod>2026-07-26</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
       </url>
