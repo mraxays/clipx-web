@@ -3,7 +3,29 @@ const router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+  // If 'ref' or 'utm_source' query parameters exist, redirect to clean URL
+  if (req.query.ref || req.query.utm_source) {
+    return res.redirect(301, '/');
+  }
 
+  // Render home page normally
+  res.render('index', { title: 'ClipX JS - Advanced Clipboard Management & Integration' });
+});
+router.get('/sitemap.xml', function(req, res, next) {
+  res.header('Content-Type', 'application/xml');
+  const sitemapXml = `
+    <?xml version="1.0" encoding="UTF-8"?>
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+      <!-- Home Page -->
+      <url>
+        <loc>${req.protocol}://${req.get('host')}/</loc>
+        <lastmod>2026-07-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+      </url>
+    </urlset>
+  `;
+
+  res.send(sitemapXml.trim());
+});
 export default router;
