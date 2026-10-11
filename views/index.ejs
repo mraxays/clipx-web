@@ -1,24 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<% baseUrl="https://clipx.js.org/" %>
+<% const esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;"); const code = (l, s) => '<pre class="code"><code class="language-'+l+'">'+esc(s)+'</code></pre>'; %>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>
-    <%= title %>
-  </title>
-  <link rel="stylesheet" href="/stylesheets/styles.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><%= title %></title>
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<meta name="description" content="ClipX JS is a tiny, dependency-free clipboard library: copy, cut, paste, text formatting and customizable toast notifications, driven by simple HTML data attributes. Try it in the live playground.">
+<meta name="keywords" content="ClipX, ClipX JS, clipboard library, copy cut paste, JavaScript clipboard, toast notifications, clipboard API, text formatting, web development, developer toolkit">
+<meta name="color-scheme" content="dark light">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="ClipX JS — The Smarter Clipboard Solution">
+<meta property="og:description" content="Copy, cut, paste and format text with HTML attributes. Built-in toast feedback and a live playground.">
+<meta property="og:url" content="<%= baseUrl %>">
+<meta property="og:image" content="<%= baseUrl %>images/banner.webp">
+<meta property="og:image:alt" content="ClipX JS">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="ClipX JS">
+<meta property="og:locale" content="en_US">
+<link rel="canonical" href="<%= baseUrl %>">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+<link rel="stylesheet" href="/stylesheets/styles.css">
 </head>
-
 <body>
-  <div class="w-screen h-screen bg-black text-white">
-    <div class="flex flex-col items-center justify-center h-full">
-      <h1 class="text-4xl font-bold mb-4">
-        <%= title %>
-      </h1>
-      <p class="text-lg">Advanced Clipboard Management & Integration</p>
+<header class="top"><div class="wrap">
+  <a class="logo" href="#top">Clip<b>X</b>.JS</a>
+  <a class="l h" href="#playground">Playground</a><a class="l h" href="#install">Install</a><a class="l h" href="#attributes">Docs</a>
+  <a class="l" href="https://github.com/mraxays/clipxjs" target="_blank" rel="noopener">GitHub</a><span class="ver">v1.3.0</span>
+</div></header>
+
+<div class="wrap hero" id="top">
+  <p class="eyebrow">MIT · zero dependencies · copy / cut / paste / format</p>
+  <h1>The smarter clipboard solution.</h1>
+  <p class="sub">Add clipboard actions and user feedback to any page using plain HTML attributes. Built-in toast notifications, text formatting, and nothing else to install.</p>
+  <div class="flex flex-wrap items-center gap-3">
+    <a class="btn pri" href="#playground">Try the playground</a>
+    <div class="pill"><code id="i-hero">npm i clipxjs</code><button class="btn" data-clipx-target="#i-hero" data-clipx-disable-msg data-clipx-msg="Copied">Copy</button></div>
+  </div>
+</div>
+
+<div class="wrap layout">
+<aside>
+  <a href="#playground">Playground</a><a href="#why">Why ClipX</a><a href="#install">Installation</a><a href="#start">Getting started</a><a href="#attributes">Attributes</a><a href="#formatting">Formatting</a><a href="#api">JavaScript API</a><a href="#events">Events</a><a href="#notes">Notes</a>
+</aside>
+<main>
+
+<section id="playground">
+  <h2>Playground</h2>
+  <p>Change the options and use the live button. The code on the right updates as you go, and you can copy it straight into your project.</p>
+  <div class="pg">
+    <div class="ctrl">
+      <div class="fld">Action<div class="seg"><button data-mode="text" class="on">Copy text</button><button data-mode="copy">Copy element</button><button data-mode="cut">Cut</button><button data-mode="paste">Paste</button></div></div>
+      <label id="row-text">Text to copy<input class="in" id="in-text" value="  &lt;b&gt;Hello&lt;/b&gt;   from ClipX!  "></label>
+      <div class="fld">Clean up (in click order)
+        <div class="chips"><button data-f="striphtml">striphtml</button><button data-f="trim">trim</button><button data-f="collapse">collapse</button><button data-f="singleline">singleline</button></div>
+      </div>
+      <div class="fld">Case (pick one)
+        <div class="chips"><button data-f="uppercase">uppercase</button><button data-f="lowercase">lowercase</button><button data-f="capitalize">capitalize</button><button data-f="titlecase">titlecase</button></div>
+      </div>
+      <label>Message<input class="in" id="in-msg" placeholder="Copied!"></label>
+      <div class="grid grid-cols-2 gap-2.5">
+        <label>Position<select class="in" id="in-pos"><option>bottom</option><option>top</option></select></label>
+        <label>Duration (ms)<input class="in" id="in-dur" type="number" value="1500" min="300" step="100"></label>
+      </div>
+      <label class="ck"><input type="checkbox" id="ck-only"> Toast only</label>
+      <label class="ck"><input type="checkbox" id="ck-nomsg"> Keep button text</label>
+      <label class="ck"><input type="checkbox" id="ck-notoast"> Disable toast</label>
+    </div>
+    <div class="out">
+      <div class="prev" id="pg-prev"></div>
+      <pre class="code" id="pg-code"><code class="language-html"></code></pre>
     </div>
   </div>
-</body>
+</section>
 
+<section id="why">
+  <h2>Why ClipX.js?</h2>
+  <p>A clipboard utility that handles the UI feedback too, so you don't need to wire up extra libraries or write the same handler in every project.</p>
+  <div class="mt-4 grid grid-cols-[repeat(auto-fit,minmax(230px,1fr))] gap-3.5">
+    <div class="card"><b>Declarative</b><span>Behavior lives in your markup with <code>data-clipx-*</code> attributes. No custom event handlers.</span></div>
+    <div class="card"><b>Built-in feedback</b><span>Customizable toasts and button messages, plus clear error toasts instead of silent failures.</span></div>
+    <div class="card"><b>Copy, cut, paste, format</b><span>Clean text with chained formatters before it reaches the clipboard, or add your own.</span></div>
+    <div class="card"><b>Easy integration</b><span>Event delegation means dynamically added buttons just work. Uses the Clipboard API with a copy fallback.</span></div>
+  </div>
+</section>
+
+<section id="install">
+  <h2>Installation</h2>
+  <h3>NPM</h3>
+  <%- code('bash', 'npm i clipxjs') %>
+  <h3>CDN (use only one)</h3>
+  <%- code('html', '<script src="https://cdn.jsdelivr.net/npm/clipxjs/dist/clipx.min.js"></script>') %>
+  <%- code('html', '<script src="https://unpkg.com/clipxjs/dist/clipx.min.js"></script>') %>
+  <h3>Direct download</h3>
+  <p><a href="https://github.com/mraxays/clipxjs/archive/refs/heads/main.zip" target="_blank" rel="noopener noreferrer">Download the ZIP from GitHub</a></p>
+</section>
+
+<section id="start">
+  <h2>Getting started</h2>
+  <h3>Initialize</h3>
+  <p><code>ClipX</code> is an alias of the <code>clipx</code> constructor, so naming your instance <code>clipx</code> doesn't shadow it.</p>
+  <%- code('javascript', 'var clipx = new ClipX();\n\n// with a bundler\nconst ClipX = require("clipxjs");') %>
+  <h3>Attach</h3>
+  <p><code>attach()</code> uses event delegation, so it also works for elements added later, and it is safe to call more than once.</p>
+  <%- code('javascript', 'clipx.attach(); // default: [data-clipx-text], [data-clipx-target], [data-clipx-paste]\nclipx.attach(".copy-btn, .your-class"); // custom selectors\nclipx.detach(); // remove all listeners') %>
+  <h3>Configure</h3>
+  <%- code('javascript', 'clipx.disable.msg = true;   // never change the element text\nclipx.disable.toast = true; // never show toasts\n\nclipx.setCustomStyles({\n  toast: "background:#333;color:#fff;padding:12px;border-radius:5px;", // all toasts\n  error: "background:#7a1f1f;"                                         // extra, for error toasts\n});') %>
+  <p>Hide the toast icon with CSS:</p>
+  <%- code('css', '.clipx-js-svg-icon { display: none; }') %>
+</section>
+
+<section id="attributes">
+  <h2>Attributes</h2>
+  <p>Add these to any element that matches your <code>attach()</code> selector. If several source attributes are present, the priority is <code>paste</code>, then <code>target</code>, then <code>text</code>.</p>
+  <div class="overflow-x-auto"><table>
+    <tr><th>Attribute</th><th>Description</th></tr>
+    <tr><td><code>data-clipx-target</code></td><td>Selector of the element to copy (or cut) from. Inputs use their value; other elements their text.</td></tr>
+    <tr><td><code>data-clipx-text</code></td><td>Static text to copy.</td></tr>
+    <tr><td><code>data-clipx-paste</code></td><td>Selector of the element to paste into.</td></tr>
+    <tr><td><code>data-clipx-cut</code></td><td>Clear the target after copying. Only works with <code>data-clipx-target</code>.</td></tr>
+    <tr><td><code>data-clipx-format</code></td><td>Comma-separated formatters applied before copy or paste: <code>trim</code>, <code>uppercase</code>, <code>lowercase</code>, <code>capitalize</code>, <code>titlecase</code>, <code>collapse</code>, <code>singleline</code>, <code>striphtml</code>.</td></tr>
+    <tr><td><code>data-clipx-msg</code></td><td>Custom success message (default <code>Copied!</code> / <code>Pasted!</code>).</td></tr>
+    <tr><td><code>data-clipx-toast</code></td><td>Show only the toast; leave the element's text unchanged.</td></tr>
+    <tr><td><code>data-clipx-disable-msg</code></td><td>Don't change the element's text.</td></tr>
+    <tr><td><code>data-clipx-disable-toast</code></td><td>Don't show the toast.</td></tr>
+    <tr><td><code>data-clipx-toast-position</code></td><td><code>top</code> or <code>bottom</code> (default).</td></tr>
+    <tr><td><code>data-clipx-duration</code></td><td>Milliseconds the message stays visible (default <code>1500</code>).</td></tr>
+  </table></div>
+  <h3>Examples</h3>
+  <%- code('html', '<!-- copy from an element -->\n<p id="text-to-copy">This is the text to be copied.</p>\n<button data-clipx-target="#text-to-copy">Copy Text</button>\n\n<!-- static text with a custom message -->\n<button data-clipx-text="Static text" data-clipx-msg="Text copied successfully!">Copy</button>\n\n<!-- cut -->\n<textarea id="text-to-cut">This text will be cut.</textarea>\n<button data-clipx-target="#text-to-cut" data-clipx-cut>Cut</button>\n\n<!-- paste -->\n<textarea id="paste-here"></textarea>\n<button data-clipx-paste="#paste-here">Paste</button>\n\n<!-- toast only, on top, for 3 seconds -->\n<button data-clipx-text="Hi" data-clipx-toast data-clipx-toast-position="top" data-clipx-duration="3000">Copy</button>\n\n<!-- silent copy -->\n<button data-clipx-text="Hi" data-clipx-disable-toast data-clipx-disable-msg>Copy</button>') %>
+</section>
+
+<section id="formatting">
+  <h2>Formatting</h2>
+  <p>Formatters in <code>data-clipx-format</code> run left to right, before the text is copied or pasted. The case formatters (<code>uppercase</code>, <code>lowercase</code>, <code>capitalize</code>, <code>titlecase</code>) replace each other, so use only one of them per attribute.</p>
+  <div class="overflow-x-auto"><table>
+    <tr><th>Formatter</th><th>Effect</th></tr>
+    <tr><td><code>trim</code></td><td>Remove leading and trailing whitespace</td></tr>
+    <tr><td><code>uppercase</code> / <code>lowercase</code></td><td>Change case</td></tr>
+    <tr><td><code>capitalize</code></td><td>Uppercase the first letter only</td></tr>
+    <tr><td><code>titlecase</code></td><td>Capitalize Each Word</td></tr>
+    <tr><td><code>collapse</code></td><td>Replace runs of whitespace with one space</td></tr>
+    <tr><td><code>singleline</code></td><td>Replace line breaks with a space</td></tr>
+    <tr><td><code>striphtml</code></td><td>Remove HTML tags (and script/style content) and decode entities, leaving plain text</td></tr>
+  </table></div>
+  <%- code('javascript', '// add your own\nclipx.addFormatter("reverse", function (text) {\n  return text.split("").reverse().join("");\n});\n// <button data-clipx-text="abc" data-clipx-format="reverse">') %>
+</section>
+
+<section id="api">
+  <h2>JavaScript API</h2>
+  <p>Use ClipX without attributes. Copy, cut and paste methods return Promises.</p>
+  <%- code('javascript', 'clipx.copyText("hello");                    // copy a string\nclipx.cutText("hello", element);            // copy, then clear element\nclipx.copyFromElement(element, "trim");     // optional format\nclipx.cutFromElement(element, "trim");\nclipx.pasteText();                          // resolves with clipboard text\nclipx.pasteToElement(element, "uppercase");\nclipx.format("  hi ", "trim,uppercase");    // sync, returns "HI"\nclipx.addFormatter(name, fn);\nclipx.attach(selector); clipx.detach();\nclipx.setCustomStyles({ toast, error });') %>
+</section>
+
+<section id="events">
+  <h2>Events</h2>
+  <p>ClipX dispatches bubbling events from the clicked element.</p>
+  <%- code('javascript', 'document.addEventListener("clipx:success", function (e) {\n  console.log(e.target, e.detail.type); // "copy" | "cut" | "paste"\n});\n\ndocument.addEventListener("clipx:error", function (e) {\n  console.log(e.detail.error);\n});') %>
+</section>
+
+<section id="notes">
+  <h2>Notes</h2>
+  <ul>
+    <li>Works in modern browsers. Copy uses the Clipboard API and falls back to <code>execCommand("copy")</code> if it is unavailable or blocked.</li>
+    <li>The Clipboard API requires a secure context (HTTPS or <code>localhost</code>).</li>
+    <li><b>Paste</b> uses <code>navigator.clipboard.readText()</code>: it needs HTTPS, a user click, and usually a permission prompt. Support varies by browser, and an error toast shows when it isn't allowed.</li>
+    <li>Cutting from a non-input element sets its text to empty, which removes any child elements inside it.</li>
+    <li>Toast messages are inserted as plain text, so <code>data-clipx-msg</code> can't inject HTML.</li>
+    <li>Upgrading from 1.2.x? The default message is now <code>Copied!</code>, and the old <code>isProcessing</code> property is gone.</li>
+  </ul>
+</section>
+
+</main>
+</div>
+
+<footer><div class="wrap">
+  <span>Made with ♥ by <a href="https://github.com/mraxays" target="_blank" rel="noopener">Mr Akshay</a></span>
+  <span>&copy; <%= new Date().getFullYear() %> | <a href="<%= baseUrl %>">ClipX.JS</a></span>
+  <span>Crafted by <a href="https://co.auss.in/" target="_blank" rel="noopener">CoDezinr</a></span>
+</div></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipxjs/dist/clipx.min.js"></script>
+<script>
+var clipx = new ClipX();
+clipx.setCustomStyles({
+  toast: "background:#1b1f2a;color:#fff;border:1px solid #353b4e;border-radius:10px;padding:10px 14px",
+  error: "background:#3d1a1a;border-color:#7a2a2a"
+});
+clipx.attach();
+(function () {
+  var BASE = <%- JSON.stringify(baseUrl) %>, H = window.hljs;
+  var $ = function (s) { return document.querySelector(s); }, $$ = function (s) { return [].slice.call(document.querySelectorAll(s)); };
+  function mk(t, a, x) { var e = document.createElement(t); for (var k in a) e.setAttribute(k, a[k]); if (x) e.textContent = x; return e; }
+  function q(v) { return String(v).replace(/&/g, "&amp;").replace(/"/g, "&quot;"); }
+
+
+  function hl(c) {
+    if (!H) return;
+    delete c.dataset.highlighted; // allow re-highlighting
+    H.highlightElement(c);
+  }
+
+  $$("pre.code:not(#pg-code) code").forEach(hl);
+
+  $$("pre.code").forEach(function (p, i) {
+    p.firstChild.id = "c" + i;
+    p.appendChild(mk("button", { "class": "cp", "data-clipx-target": "#c" + i, "data-clipx-disable-msg": "", "data-clipx-msg": "Code copied" }, "Copy"));
+  });
+  $$("section[id] h2").forEach(function (h) {
+    h.appendChild(mk("button", { "class": "lk", "aria-label": "Copy link", "data-clipx-text": BASE + "#" + h.parentNode.id, "data-clipx-disable-msg": "", "data-clipx-msg": "Link copied" }, "#"));
+  });
+
+  /* Playground */
+  var S = { mode: "text", text: "  <b>Hello</b>   from ClipX!  ", src: "  <i>Edit me</i>,   then copy or cut  ", fmt: [], msg: "", pos: "bottom", dur: 1500, only: 0, nomsg: 0, notoast: 0 };
+  var LABEL = { text: "Copy text", copy: "Copy element", cut: "Cut", paste: "Paste" };
+  function render() {
+    var a = {};
+    if (S.mode == "text") a["data-clipx-text"] = S.text;
+    else if (S.mode == "paste") a["data-clipx-paste"] = "#pg-dest";
+    else { a["data-clipx-target"] = "#pg-src"; if (S.mode == "cut") a["data-clipx-cut"] = ""; }
+    if (S.fmt.length) a["data-clipx-format"] = S.fmt.join(",");
+    if (S.msg) a["data-clipx-msg"] = S.msg;
+    if (S.pos == "top") a["data-clipx-toast-position"] = "top";
+    if (S.dur != 1500) a["data-clipx-duration"] = S.dur;
+    if (S.only) a["data-clipx-toast"] = "";
+    if (S.nomsg) a["data-clipx-disable-msg"] = "";
+    if (S.notoast) a["data-clipx-disable-toast"] = "";
+
+    var box = $("#pg-prev"); box.textContent = "";
+    var field = S.mode == "paste" ? mk("textarea", { id: "pg-dest", "class": "in", placeholder: "Pasted text appears here" })
+      : S.mode == "text" ? null : mk("input", { id: "pg-src", "class": "in", value: S.src });
+    field && box.appendChild(field);
+    var btn = mk("button", a, LABEL[S.mode]); btn.className = "btn pri"; box.appendChild(btn);
+    if (S.mode != "text") { var rs = mk("button", { type: "button", "class": "btn" }, "Reset"); rs.onclick = render; box.appendChild(rs); }
+    var res = mk("div", { "class": "basis-full text-center font-mono text-xs break-all text-mute" });
+    var out = clipx.format(S.mode == "text" ? S.text : S.src, S.fmt);
+    res.textContent = (S.fmt.length ? S.fmt.join(" \u2192 ") + "  |  " : "") + (S.mode == "paste" ? "formats the pasted text" : out ? 'copies: "' + out + '"' : "nothing to copy");
+    box.appendChild(res);
+
+    var attrs = Object.keys(a).map(function (k) { return a[k] === "" ? "  " + k : "  " + k + '="' + q(a[k]) + '"'; }).join("\n");
+    var html = (S.mode == "paste" ? '<textarea id="pg-dest"></textarea>\n' : S.mode == "text" ? "" : '<input id="pg-src" value="' + q(S.src) + '">\n')
+      + "<button\n" + attrs + ">\n  " + LABEL[S.mode] + "\n</button>\n\n<script>\n  new ClipX().attach();\n<\/script>";
+    var c = $("#pg-code code");
+    c.textContent = html; // plain text first, which clears old highlight spans
+    hl(c);
+  }
+  $$("[data-mode]").forEach(function (b) {
+    b.onclick = function () {
+      S.mode = b.dataset.mode;
+      $$("[data-mode]").forEach(function (x) { x.classList.toggle("on", x == b); });
+      $("#row-text").style.display = S.mode == "text" ? "" : "none";
+      render();
+    };
+  });
+  var CASE = ["uppercase", "lowercase", "capitalize", "titlecase"];
+  function sync() {
+    $$("[data-f]").forEach(function (b) {
+      var on = S.fmt.indexOf(b.dataset.f) > -1;
+      b.classList.toggle("on", on); b.setAttribute("aria-pressed", on);
+    });
+  }
+  $$("[data-f]").forEach(function (b) {
+    b.onclick = function () {
+      var f = b.dataset.f, i = S.fmt.indexOf(f);
+      if (i > -1) S.fmt.splice(i, 1);
+      else {
+        if (CASE.indexOf(f) > -1) S.fmt = S.fmt.filter(function (x) { return CASE.indexOf(x) < 0; }); // one case at a time
+        S.fmt.push(f);
+      }
+      sync(); render();
+    };
+  });
+  function bind(id, fn) { var e = $(id); e.oninput = e.onchange = function () { fn(e); render(); }; }
+  bind("#in-text", function (e) { S.text = e.value; });
+  bind("#in-msg", function (e) { S.msg = e.value; });
+  bind("#in-pos", function (e) { S.pos = e.value; });
+  bind("#in-dur", function (e) { S.dur = parseInt(e.value, 10) || 1500; });
+  bind("#ck-only", function (e) { S.only = e.checked; });
+  bind("#ck-nomsg", function (e) { S.nomsg = e.checked; });
+  bind("#ck-notoast", function (e) { S.notoast = e.checked; });
+  var links = $$("aside a");
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) links.forEach(function (a) { a.classList.toggle("on", a.hash == "#" + e.target.id); }); });
+  }, { rootMargin: "-20% 0px -70% 0px" });
+  $$("section[id]").forEach(function (x) { io.observe(x); });
+  sync();
+  render();
+})();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "ClipX JS",
+  "description": "ClipX.JS is a tiny, dependency-free clipboard library for JavaScript with copy, cut, paste, text formatting and customizable toast notifications.",
+  "url": "<%= baseUrl %>",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any",
+  "license": "https://opensource.org/licenses/MIT",
+  "softwareVersion": "1.3.0"
+}
+</script>
+</body>
 </html>
