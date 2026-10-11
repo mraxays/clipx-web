@@ -979,6 +979,10 @@
     border-width: 0px;
   }
 }
+pre code.hljs {
+  background-color: transparent;
+  padding: calc(var(--spacing) * 0);
+}
 .hljs {
   background-color: transparent;
 }

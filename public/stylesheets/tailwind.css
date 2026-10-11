@@ -132,5 +132,5 @@
   .prev .in { @apply max-w-xs; }
   .out pre.code { @apply m-0 min-h-44 rounded-none border-0; }
 }
-
+pre code.hljs { @apply bg-transparent p-0; }
 .hljs { @apply bg-transparent; }
