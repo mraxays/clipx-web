@@ -1,2 +1,30 @@
-node_modules
+# Dependencies
+node_modules/
+
+# Logs
+logs/
+*.log
+
+# Environment variables
 .env
+.env.*
+!.env.example
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# Caches
+.npm
+.eslintcache
+
+# Coverage directory used by testing tools
+coverage/
+
+# Temporary files
+tmp/
+temp/
+
+# IDE-specific files
+.vscode/
+.idea/
